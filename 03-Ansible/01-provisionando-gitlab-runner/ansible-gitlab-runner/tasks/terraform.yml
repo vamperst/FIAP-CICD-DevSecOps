@@ -1,0 +1,20 @@
+---
+- name: Determine Terraform checksums
+  uri: url="https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_SHA256SUMS"
+       method="GET"
+       return_content=True
+  register: terraform_checksums
+
+- name: Download Terraform
+  get_url: url="https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+           dest="/usr/local/src/terraform_{{ terraform_version }}_linux_amd64.zip"
+           checksum="sha256:{{ item.split(' ') | first }}"
+  with_items: "{{ terraform_checksums.content.split('\n') | select('search', 'linux_amd64') | list | first }}"
+  register: terraform_downloaded
+  when: terraform_checksums
+  
+- name: Extract and install Terraform
+  unarchive: src="/usr/local/src/terraform_{{ terraform_version }}_linux_amd64.zip"
+             dest=/usr/local/bin
+             copy=no
+  when: terraform_downloaded

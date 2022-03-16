@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  user: ubuntu
+  become: true
+  vars:
+    - terraform_version: 1.1.6
+    - gitlab_runner_timeout_stop_seconds: 30
+    - gitlab_runner_user: gitlab-runner
+    - gitlab_runner_system_mode: true
+    - gitlab_runner_config_file: /etc/gitlab-runner/config.toml
+    - gitlab_runner_config_file_location: /etc/gitlab-runner/
+    - gitlab_runner_executable: gitlab-runner
+  
+  tasks:
+    - include: tasks/python.yml
+    - include: tasks/terraform.yml
+    - include: tasks/gitlab-runner.yml
+    - include: tasks/register-runner.yml

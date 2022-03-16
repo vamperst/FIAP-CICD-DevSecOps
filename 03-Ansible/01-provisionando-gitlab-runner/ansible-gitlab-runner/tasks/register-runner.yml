@@ -1,0 +1,52 @@
+---
+- name: Clear Config File
+  block:
+    - name: configfile Toml
+      stat:
+        path: "{{ gitlab_runner_config_file }}"
+      register: configfile
+    - name: remove config.toml file
+      file:
+        path: "{{ gitlab_runner_config_file }}"
+        state: absent
+      become: "{{ gitlab_runner_system_mode }}"
+      when: configfile.stat.exists
+
+    - name: Create .gitlab-runner dir
+      file:
+        path: "{{ gitlab_runner_config_file_location }}"
+        state: directory
+        mode: '0755'
+      become: "{{ gitlab_runner_system_mode }}"
+
+    - name: Ensure config.toml exists
+      file:
+        path: "{{ gitlab_runner_config_file }}"
+        state: touch
+        modification_time: preserve
+        access_time: preserve
+      become: "{{ gitlab_runner_system_mode }}"
+  
+
+- name: Construct the runner command without secrets
+  # makes the command visible in awx without the secrets and therefore helps with debugging
+  set_fact:
+    command: >
+      {{ gitlab_runner_executable }} register
+      --non-interactive
+      --url 'https://gitlab.com/'
+      --description '{{ gitlab_runner_name }}'
+      --tag-list 'shell,terraform'
+      --executor 'shell'
+      --access-level="not_protected"
+      --locked="false" 
+      --run-untagged="true"
+
+- name: Register runner to GitLab
+  command: >
+    {{ command }}
+    --registration-token 'SEU TOKEN VAI AQUI'
+    {% if gitlab_runner.cache_s3_secret_key is defined %}
+    --cache-s3-secret-key '{{ gitlab_runner.cache_s3_secret_key }}'
+    {% endif %}
+  become: "{{ gitlab_runner_system_mode }}"

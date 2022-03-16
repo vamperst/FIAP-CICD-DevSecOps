@@ -1,0 +1,6 @@
+[runner]
+gitlab-runner-1 ansible_host=<IP DO SERVER>
+
+[all:vars]
+ansible_ssh_private_key_file=/home/ubuntu/.ssh/vockey.pem
+ansible_become=true

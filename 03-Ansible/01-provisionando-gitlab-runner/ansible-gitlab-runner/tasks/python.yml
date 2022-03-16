@@ -1,0 +1,31 @@
+---
+- name: Install virtualenv module
+  pip:
+    name: virtualenv
+- name: Create Python3-virtual environment folder
+  file:
+    name: /home/ubuntu/venv
+    state: directory
+- name: copying file with playbook
+  become: true 
+  copy:
+    src: requirements.txt
+    dest: /home/ubuntu/venv/requirements.txt
+- name: copying file requirements-global with playbook
+  become: true 
+  copy:
+    src: requirements-global.txt
+    dest: /home/ubuntu/requirements-global.txt
+- name: Create Python3-virtual requirements.txt
+  command: touch /home/ubuntu/venv/requirements.txt
+  args:
+    creates: /home/ubuntu/venv/requirements.txt
+- name: create virtual env
+  pip: 
+    virtualenv: /home/ubuntu/venv
+    virtualenv_python: python3.8
+    requirements: /home/ubuntu/venv/requirements.txt
+
+- name: Install python reqs globally
+  pip: 
+    requirements: /home/ubuntu/requirements-global.txt

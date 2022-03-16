@@ -1,0 +1,27 @@
+---
+- name: Create gitlab-runner user
+  user:
+    name: gitlab-runner
+    groups:
+     - root
+     - sudo
+    state: present
+    shell: /bin/bash       
+    createhome: yes        
+    home: /home/gitlab-runner
+  register: user_created
+- name: Download GitLab Runner
+  get_url: url="https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64"
+           dest="/usr/local/bin/gitlab-runner"
+  when: user_created
+  register: runner_downloaded
+- name: Set permission to the gitlab runner
+  command: sudo chmod +x /usr/local/bin/gitlab-runner
+
+- name: install runner service
+  command: "{{ gitlab_runner_executable }} install --user={{ gitlab_runner_user }} --working-directory=/home/{{ gitlab_runner_user }}"
+  when: runner_downloaded.changed
+- name: Set systemd reload options
+  import_tasks: systemd-reload.yml
+- name: Start service runner
+  command: "{{ gitlab_runner_executable }} start"
