@@ -56,7 +56,7 @@ cp -frv /home/ubuntu/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando
 
 cd /home/ubuntu/environment/primeiro-projeto
 
-git init --initial-branch=master
+git init
 git remote add origin git@gitlab.com:vamperst/primeiro-projeto.git
 git add .
 git commit -m "Initial commit"
@@ -73,7 +73,7 @@ git push -u origin master
     ![](img/gitlab-8.png)
 13. Copie o token e mantenha na área de transferência.
     ![](img/gitlab-9.png)
-14. De volta ao cloud9 você vai colar o token do gitlab no arquivo ansible que registra o runner. Para tal execute o comando `c9 open cd ~/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando-gitlab-runner/ansible-gitlab-runner/tasks/register-runner.yml` e altere a linha 48. Não esqueça de salvar.
+14. De volta ao cloud9 você vai colar o token do gitlab no arquivo ansible que registra o runner. Para tal execute o comando `c9 open ~/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando-gitlab-runner/ansible-gitlab-runner/tasks/register-runner.yml` e altere a linha 48. Não esqueça de salvar.
 15. O runner do gitlab será uma EC2 que será provisionada com terraform. Para entrar na pasta com o código execute o comando `cd ~/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando-gitlab-runner/terraform-gitlab-runner/`
 16. Atualize o estado remoto do repositório para utilizar um bucket S3 disponivel na sua conta. Abra o arquivo com `c9 open state.tf`
 17. Agora que já alterou o bucket e salvou. Execute o comando `terraform init`
