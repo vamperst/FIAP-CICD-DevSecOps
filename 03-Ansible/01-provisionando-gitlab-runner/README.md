@@ -57,7 +57,7 @@ cp -frv /home/ubuntu/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando
 cd /home/ubuntu/environment/primeiro-projeto
 
 git init
-git remote add origin git@gitlab.com:vamperst/primeiro-projeto.git
+git remote add origin git@gitlab.com:SEU-USUARIO/primeiro-projeto.git
 git add .
 git commit -m "Initial commit"
 git push -u origin master
