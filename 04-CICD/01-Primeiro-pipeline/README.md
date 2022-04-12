@@ -31,6 +31,7 @@ apply:
 5. Atualize o repositório do gitlab com os seguintes comandos:
 ```shell
 git add .gitlab-ci.yml
+git add state.tf
 git commit -m "primeiro pipeline"
 eval $(ssh-agent -s)    
 ssh-add -k /home/ubuntu/.ssh/gitlab
