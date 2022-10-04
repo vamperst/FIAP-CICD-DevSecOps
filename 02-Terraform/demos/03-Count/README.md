@@ -5,7 +5,7 @@
    ![still](images/stillinregistration.png)
 5. Quando estiverem todas prontas estarão como na imagem
    ![inservice](images/inservice2.png)
-6. Utilize o dns do ELB fornecido como saida no terraform para colar no navegador e testar o funcoinamento da Stack
+6. Utilize o dns do ELB fornecido como saida no terraform para colar no navegador e testar o funcionamento da Stack
    ![nginx1](images/nginx1.png)
 7. Agora vá até o arquivo `main.tf`(Hybrid-e-native-cloud-tutorial/02-Terraform/demos/Count) pelo IDE e altere o valor do count para 3
    ![countmod](images/countmod.png)
