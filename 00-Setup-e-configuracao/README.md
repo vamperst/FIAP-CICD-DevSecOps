@@ -20,7 +20,7 @@
    ![img/bash.png](img/bash.png)
 10. Execute o comando `npm install -g serverless` para instalar o serverless framework.
     ![img/installserverless.png](img/installserverless.png)
-11. Execute o comando `sudo apt  install jq -y` para instalar o software que irá nos ajudar a ler e manipular Jsons no terminal
+11. Execute o comando `sudo apt update -y && sudo apt  install jq -y` para instalar o software que irá nos ajudar a ler e manipular Jsons no terminal
 12. Execute o comando `npm install -g c9` para baixar a extenãp que ajudará o Cloud9 a lidar melhor com o como abrir arquivos no IDE.
 13. Execute o comando `git clone https://github.com/vamperst/FIAP-CICD-DevSecOps.git` para clonar o repositório com os exercicios.
 14. Execute o comando `cd FIAP-CICD-DevSecOps/` para entrar na pasta criada pelo git
