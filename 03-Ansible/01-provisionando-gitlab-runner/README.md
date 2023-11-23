@@ -35,7 +35,7 @@ source ~/venv/bin/activate
    ![](img/gitlab-1.png)
    3. Abre a parte publica da sua chave no IDE do cloud9 com o comando `c9 open /home/ubuntu/.ssh/gitlab.pub` e copie o conteúdo para a área de transferência do seu computador.
    4. Acesse o link da configuração de chaves do seu gitlab: [Chaves Gitlab](https://gitlab.com/-/profile/keys)
-   5. Cole o conteúdo copiado no campo destacado e clique em `Add Key`
+   5. Cole o conteúdo copiado no campo destacado e clique em `Add New Key`
    ![](img/gitlab-2.png)
    6. Devolta ao terminal do cloud9 exetuce os comandos abaixo para ativar a chave na sessão de terminal que esta utilizando:
    ```shell
@@ -71,7 +71,7 @@ git push -u origin master
     ![](img/gitlab-7.png)
 12. Desabilite a opção `Enable shared runners for this project` 
     ![](img/gitlab-8.png)
-13. Copie o token e mantenha na área de transferência.
+13. Copie o token e mantenha na área de transferência. Clique nos três pontos ao lado de `New project runner` e copie.
     ![](img/gitlab-9.png)
 14. De volta ao cloud9 você vai colar o token do gitlab no arquivo ansible que registra o runner. Para tal execute o comando `c9 open ~/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando-gitlab-runner/ansible-gitlab-runner/tasks/register-runner.yml` e altere a linha 48. Não esqueça de salvar.
 15. O runner do gitlab será uma EC2 que será provisionada com terraform. Para entrar na pasta com o código execute o comando `cd ~/environment/FIAP-CICD-DevSecOps/03-Ansible/01-provisionando-gitlab-runner/terraform-gitlab-runner/`
