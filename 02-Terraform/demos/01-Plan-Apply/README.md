@@ -24,7 +24,7 @@
 18. Adicione mais uma regra que irá liberar todo o trafego TCP para `Anywhere` como na imagem abaixo e clique em `Salvar Regras`
     ![](images/anywhere.png)
 19. Se tudo estiver certo execute o comando `terraform apply -auto-approve` no terminal do Cloud9 que estava antes.
-20. Qunado o trabalho for concluido com sucesso, você pode pegar o dns da maquina criada que esta no final outputs do terraform e colocar no navegar que irá ser exibida uma pagina inicial do Nginx.
+20. Quando o trabalho for concluido com sucesso, você pode pegar o dns da maquina criada que esta no final outputs do terraform e colocar no navegar que irá ser exibida uma pagina inicial do Nginx.
     ![nginx](images/nginxworks.png)
 21. Por fim execute `terraform destroy -auto-approve`
 22. Se certifique que o destroy funcionou
