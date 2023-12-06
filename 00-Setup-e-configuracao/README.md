@@ -83,7 +83,7 @@ seu IDE.
    
 ![img/resizeEBS](img/resizeEBS.png)
 
-18.  Agora vamos criar o Bucket S3 que irá receber todos os arquivos de configuração durante o curso. Para tal, abra uma aba do console AWS. Clique em serviços no canto superior esquerdo e pesquisa e clique em S3.
+18. Agora vamos criar o Bucket S3 que irá receber todos os arquivos de configuração durante o curso. Para tal, abra uma [aba do console AWS](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1). Clique em serviços no canto superior esquerdo e pesquisa e clique em S3.
 19. Clique em 'Criar bucket'
     
 ![](img/s3CreateBucket.png)
