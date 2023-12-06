@@ -63,42 +63,45 @@ Você irá utilizar 2 ferramentas para desenvolver os laboratorios:
 
 9. Após a criação clique em `Em aberto`, caso o IDE não tenha aberto automaticamente.
    
-   ![img/abriride.png](img/abriride.png)
+![img/abriride.png](img/abriride.png)
 
-10. Para os próximos comandos utilize o console bash que fica no canto inferior do seu IDE.
+10.  Para os próximos comandos utilize o console bash que fica no canto inferior do 
+seu IDE.
    
-   ![img/bash.png](img/bash.png)
+![img/bash.png](img/bash.png)
 
-11. Execute o comando `npm install -g serverless` para instalar o serverless framework.
+11.  Execute o comando `npm install -g serverless` para instalar o serverless framework.
     
-    ![img/installserverless.png](img/installserverless.png)
+![img/installserverless.png](img/installserverless.png)
 
-12. Execute o comando `sudo apt update -y && sudo apt  install jq -y` para instalar o software que irá nos ajudar a ler e manipular Jsons no terminal. Caso esse comando de erro, aguarde 3 minutos para o sistema terminar a preparação inicial.
+12.  Execute o comando `sudo apt update -y && sudo apt  install jq -y` para instalar o software que irá nos ajudar a ler e manipular Jsons no terminal. Caso esse comando de erro, aguarde 3 minutos para o sistema terminar a preparação inicial.
 13. Execute o comando `npm install -g c9` para baixar a extenção que ajudará o Cloud9 a lidar melhor com o como abrir arquivos no IDE.
 14. Execute o comando `git clone https://github.com/vamperst/FIAP-CICD-DevSecOps.git` para clonar o repositório com os exercicios.
 15. Execute o comando `cd FIAP-CICD-DevSecOps/` para entrar na pasta criada pelo git
 16. Execute o comando `cd 00-Setup-e-configuracao` para entrar na pasta com os scripts de Configuração.
 17. Precisamos aumentar o tamanho do volume(HD) do cloud9. Para isso execute o comando  `sh resize.sh`
-   ![img/resizeEBS](img/resizeEBS.png)
-18. Agora vamos criar o Bucket S3 que irá receber todos os arquivos de configuração durante o curso. Para tal, abra uma aba do console AWS. Clique em serviços no canto superior esquerdo e pesquisa e clique em S3.
+   
+![img/resizeEBS](img/resizeEBS.png)
+
+18.  Agora vamos criar o Bucket S3 que irá receber todos os arquivos de configuração durante o curso. Para tal, abra uma aba do console AWS. Clique em serviços no canto superior esquerdo e pesquisa e clique em S3.
 19. Clique em 'Criar bucket'
     
-    ![](img/s3CreateBucket.png)
+![](img/s3CreateBucket.png)
 
-20. De o nome do bucket de `base-config-<SEU RM>` e clique em `Criar`.
+20.  De o nome do bucket de `base-config-<SEU RM>` e clique em `Criar`.
 
-    ![](img/createBucket.png)
+![](img/createBucket.png)
 
-21. Utilizando a mesma aba do AWS Academy onde acessa a conta da AWS e no canto superior direito clique em 'AWS Details' e clique em 'show' nos campos de SSH Key.
+21.  Utilizando a mesma aba do AWS Academy onde acessa a conta da AWS e no canto superior direito clique em 'AWS Details' e clique em 'show' nos campos de SSH Key.
 
 ![](img/academy-pem-1.png)
 
-25.  Copie o conteudo da chave privada para a area de transferência(Ctrl+C).
+22.  Copie o conteudo da chave privada para a area de transferência(Ctrl+C).
     
-    ![](img/academy-pem-2.png)
+![](img/academy-pem-2.png)
 
-26. Execute o comando `c9 open ~/.ssh/vockey.pem` para criar o arquivo que utilizaremos como chave para entrar nas instancias. 
-27. Cole o conteudo da chave privada copiado nos passos anteriores e cole no ide no aquivo vockey.pem e salve utilizando "ctrl+S".
-28.  Execute o comando `chmod 400 ~/.ssh/vockey.pem` para que a chave tenha a permissão correta.
-29.  Execute o comando `aws s3 cp ~/.ssh/vockey.pem s3://base-config-<SEU RM>/instance-need/keys/` para copiar a chave que criou para o seu bucket de configurações do S3.
-30. Execute o comando a seguir para instalar o terraform `sh installTerraform.sh`
+23.  Execute o comando `c9 open ~/.ssh/vockey.pem` para criar o arquivo que utilizaremos como chave para entrar nas instancias. 
+24. Cole o conteudo da chave privada copiado nos passos anteriores e cole no ide no aquivo vockey.pem e salve utilizando "ctrl+S".
+25.  Execute o comando `chmod 400 ~/.ssh/vockey.pem` para que a chave tenha a permissão correta.
+26.  Execute o comando `aws s3 cp ~/.ssh/vockey.pem s3://base-config-<SEU RM>/instance-need/keys/` para copiar a chave que criou para o seu bucket de configurações do S3.
+27. Execute o comando a seguir para instalar o terraform `sh installTerraform.sh`
