@@ -88,7 +88,7 @@ seu IDE.
     
 ![](img/s3CreateBucket.png)
 
-20.  De o nome do bucket de `base-config-<SEU RM>` e clique em `Criar`.
+20.  De o nome do bucket de `base-config-<SEU RM>` e clique em `Criar` no final da página. Não há necessidade de alterar nenhum outro parametro.
 
 ![](img/createBucket.png)
 
