@@ -34,40 +34,37 @@ Neste exemplo você irá criar seu próprio documento de automação e executar.
    3. Runtime: Python3.8
    4. Handler: `associando_perfil_instancia`
    5. Script: 
-   ```python
-    import boto3
+```python
+import boto3
 
-    import json
-    ec2 = boto3.client('ec2')
-    ec2_resource = boto3.resource('ec2')
+import json
+ec2 = boto3.client('ec2')
+ec2_resource = boto3.resource('ec2')
 
-    def associando_perfil_instancia(event, context):
-        print(f"event: {json.dumps(event)}")
-        if(event.get("instanceProfile") is None):
-            perfilDeInstancia = 'LabInstanceProfile'
+def associando_perfil_instancia(event, context):
+    print(f"event: {json.dumps(event)}")
+    if(event.get("instanceProfile") is None):
+        perfilDeInstancia = 'LabInstanceProfile'
+    else:
+        perfilDeInstancia = event["instanceProfile"]
+
+    instancias = ec2_resource.instances.filter(
+            Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
+    retorno = dict()
+    retorno["instanceProfile"] = list       
+    for instancia in instancias:
+            ec2.associate_iam_instance_profile(
+                IamInstanceProfile={
+                    'Name': perfilDeInstancia
+                },
+                InstanceId=instancia.id
+            )
+                print(f"Perfil de instancia {perfilDeInstancia} associado{instancia.id} de maneira bem sucedida")
         else:
-            perfilDeInstancia = event["instanceProfile"]
-
-        instancias = ec2_resource.instances.filter(
-                Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
-        retorno = dict()
-        retorno["instanceProfile"] = list()
-        
-        for instancia in instancias:
-            if(instancia.iam_instance_profile is None):
-                ec2.associate_iam_instance_profile(
-                    IamInstanceProfile={
-                        'Name': perfilDeInstancia
-                    },
-                    InstanceId=instancia.id
-                )
-                print(f"Perfil de instancia {perfilDeInstancia} associado a  {instancia.id} de maneira bem sucedida")
-            else:
-                print(f"Instancia {instancia.id} já tem uma funcao associada: {instancia.iam_instance_profile['Arn']}")
-            retorno["instanceProfile"].append(instancia.id)
-        
-        return retorno
-   ```
+                print(f"Instancia {instancia.id} já tem uma funcao associa{instancia.iam_instance_profile['Arn']}")
+        retorno["instanceProfile"].append(instancia.i       
+    return retorno
+```
    6. Entrada adicional:
       1. Nome da entrada: InputPayload
       2. Valor entrada: `instanceProfile: '{{instanceProfile}}'`
