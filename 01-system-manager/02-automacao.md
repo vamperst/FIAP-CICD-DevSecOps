@@ -105,12 +105,12 @@ def associando_perfil_instancia(event, context):
     3. Runtime: Python3.8
     4. Handler: `script_handler`
     5. Script:
-    ```python
-    import json
+```python
+import json
 
-    def script_handler(events, context):
-      print(json.dumps(events))
-    ```
+def script_handler(events, context):
+    print(json.dumps(events))
+```
     6. Entradas adicionais: 
        1. Nome da entrada: InputPayload
        2. Valor de entrada: `instanceProfile: '{{ AdicionandoFuncaoInstancias.instanceProfiles}}'`
