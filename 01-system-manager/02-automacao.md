@@ -111,16 +111,18 @@ import json
 def script_handler(events, context):
     print(json.dumps(events))
 ```
+   
+    
     6. Entradas adicionais: 
        1. Nome da entrada: InputPayload
        2. Valor de entrada: `instanceProfile: '{{ AdicionandoFuncaoInstancias.instanceProfiles}}'`
     7. Em propriedades comuns altere `É fim` para `True`
     ![](img/demo2-13.png)
-21. Selecione a opção `Definir nova versão como padrão` ao final da página.
+1.  Selecione a opção `Definir nova versão como padrão` ao final da página.
     ![](img/demo2-14.png)
-22. Clique em `Criar nova versão`
-23. Execute novamente sua automação como feito nos passos anteriores. Irá notar que agora esta na versão 2 pela descrição da versão do documento.
+2.  Clique em `Criar nova versão`
+3.  Execute novamente sua automação como feito nos passos anteriores. Irá notar que agora esta na versão 2 pela descrição da versão do documento.
   ![](img/demo2-15.png)
   ![](demo2-16.png)
-24. O código da etapa 2 era apenas para fazer um print do evento que recebe e nesse evento deve constar a saida da etapa 1 que foi configurada como entrada na etapa 2. Para conferir, clique no ID da etapa 2 e verá que no log tem uma lista `instanceProfile`.
+1.  O código da etapa 2 era apenas para fazer um print do evento que recebe e nesse evento deve constar a saida da etapa 1 que foi configurada como entrada na etapa 2. Para conferir, clique no ID da etapa 2 e verá que no log tem uma lista `instanceProfile`.
 ![](img/demo2-17.png)
