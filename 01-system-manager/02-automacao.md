@@ -51,18 +51,20 @@ def associando_perfil_instancia(event, context):
     instancias = ec2_resource.instances.filter(
             Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
     retorno = dict()
-    retorno["instanceProfile"] = list       
+    retorno["instanceProfile"] = list()
+
     for instancia in instancias:
+        if(instancia.iam_instance_profile is None):
             ec2.associate_iam_instance_profile(
                 IamInstanceProfile={
                     'Name': perfilDeInstancia
                 },
                 InstanceId=instancia.id
             )
-            print(f"Perfil de instancia {perfilDeInstancia} associado{instancia.id} de maneira bem sucedida")
+            print(f"Perfil de instancia {perfilDeInstancia} associado a  {instancia.id} de maneira bem sucedida")
         else:
-            print(f"Instancia {instancia.id} já tem uma funcao associa{instancia.iam_instance_profile['Arn']}")
-        retorno["instanceProfile"].append(instancia.i       
+            print(f"Instancia {instancia.id} já tem uma funcao associada: {instancia.iam_instance_profile['Arn']}")
+            retorno["instanceProfile"].append(instancia.id)
     return retorno
 ```
    6. Entrada adicional:
