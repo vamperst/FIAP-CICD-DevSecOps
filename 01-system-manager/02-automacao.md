@@ -59,9 +59,9 @@ def associando_perfil_instancia(event, context):
                 },
                 InstanceId=instancia.id
             )
-                print(f"Perfil de instancia {perfilDeInstancia} associado{instancia.id} de maneira bem sucedida")
+            print(f"Perfil de instancia {perfilDeInstancia} associado{instancia.id} de maneira bem sucedida")
         else:
-                print(f"Instancia {instancia.id} já tem uma funcao associa{instancia.iam_instance_profile['Arn']}")
+            print(f"Instancia {instancia.id} já tem uma funcao associa{instancia.iam_instance_profile['Arn']}")
         retorno["instanceProfile"].append(instancia.i       
     return retorno
 ```
