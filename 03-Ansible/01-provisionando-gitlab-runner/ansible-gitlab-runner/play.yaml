@@ -13,7 +13,7 @@
     - gitlab_runner_executable: gitlab-runner
   
   tasks:
-    - include: tasks/python.yml
-    - include: tasks/terraform.yml
-    - include: tasks/gitlab-runner.yml
-    - include: tasks/register-runner.yml
+    - include_tasks: tasks/python.yml
+    - include_tasks: tasks/terraform.yml
+    - include_tasks: tasks/gitlab-runner.yml
+    - include_tasks: tasks/register-runner.yml
