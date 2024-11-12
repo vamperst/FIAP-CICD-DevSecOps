@@ -116,6 +116,6 @@ Você irá utilizar 2 ferramentas para desenvolver os laboratorios:
     
 ![](img/academy-pem-2.png)
 
-23. Cole o conteudo da chave privada copiado nos passos anteriores e cole no ide no aquivo vockey.pem aberto no cloud9 nos passos anteriores e salve utilizando "ctrl+S".
+23. Cole o conteudo da chave privada copiado no passo anterior no ide no aquivo vockey.pem aberto no cloud9 nos passos anteriores e salve utilizando "ctrl+S".
 24. Execute no terminal do cloud9 comando `chmod 400 ~/.ssh/vockey.pem` para que a chave tenha a permissão correta.
 25. Execute o comando a seguir para instalar o terraform `sh installTerraform.sh`
