@@ -79,7 +79,7 @@ Você irá utilizar 2 ferramentas para desenvolver os laboratorios:
    
 ![img/bash.png](img/bash.png)
 
-1.   Execute o comando `npm install -g serverless` para instalar o serverless framework.
+11.   Execute o comando `sudo npm install -g serverless` para instalar o serverless framework.
     
 ![img/installserverless.png](img/installserverless.png)
 
