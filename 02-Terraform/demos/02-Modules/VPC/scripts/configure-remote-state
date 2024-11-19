@@ -1,2 +1,0 @@
-#!/bin/sh
-terraform remote config -backend=s3 -backend-config="bucket=infra-semantixsense" -backend-config="key=terraform/VPC/terraform.tfstate" -backend-config="region=eu-east-1"
