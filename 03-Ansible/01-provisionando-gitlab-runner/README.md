@@ -34,7 +34,7 @@ source ~/venv/bin/activate
    2. Pressione enter duas vezes para sinalizar que não quer senha para a chave
    ![](img/gitlab-1.png)
    3. Abre a parte publica da sua chave no IDE do cloud9 com o comando `c9 open /home/ubuntu/.ssh/gitlab.pub` e copie o conteúdo para a área de transferência do seu computador.
-   4. Acesse o link da configuração de chaves do seu gitlab: [Chaves Gitlab](https://gitlab.com/-/profile/keys)
+   4. Acesse o link da configuração de chaves do seu gitlab: [Chaves Gitlab](https://gitlab.com/-/user_settings/ssh_keys)
    5. Cole o conteúdo copiado no campo destacado e clique em `Add New Key`
    ![](img/gitlab-2.png)
    6. Devolta ao terminal do cloud9 exetuce os comandos abaixo para ativar a chave na sessão de terminal que esta utilizando:
